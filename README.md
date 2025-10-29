@@ -30,8 +30,17 @@ The configuration included:
 - Five **RHEL EC2 instances** using AMI `ami-0d67d2fca664feb68`.
 - One monitoring instance hosting the Docker-based monitoring stack.
 
+
+
+<img width="1470" height="956" alt="For grafana" src="https://github.com/user-attachments/assets/e073538a-df6f-4683-bf40-acaac427a2dc" />
+
+
+
 **Key Commands**
 ```bash
+
+
+
 terraform init
 terraform plan
 terraform apply -auto-approve
@@ -66,6 +75,4 @@ monitoring-stack/
 │   └── variables.tf
 └── grafana-data/
 
-
-<img width="1470" height="956" alt="For grafana" src="https://github.com/user-attachments/assets/e073538a-df6f-4683-bf40-acaac427a2dc" />
 
