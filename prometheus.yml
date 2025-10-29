@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "node"
+    static_configs:
+      - targets:
+        - "13.40.xx.xx:9100"
+        - "18.132.xx.xx:9100"
+        - "3.10.xx.xx:9100"
+        - "18.135.xx.xx:9100"
+        - "18.171.xx.xx:9100"
