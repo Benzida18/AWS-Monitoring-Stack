@@ -1,0 +1,24 @@
+---
+- name: Generate load on all nodes for ~2 minutes
+  hosts: all
+  become: yes
+
+  vars:
+    duration: 120
+    cpus: 2
+
+  tasks:
+    - name: Install stress-ng if available
+      shell: |
+        dnf -y install epel-release || true
+        dnf -y install stress-ng || true
+
+    - name: Simulate CPU and Memory Load
+      shell: |
+        if command -v stress-ng >/dev/null 2>&1; then
+          stress-ng --cpu {{ cpus }} --timeout {{ duration }}s
+        else
+          for i in $(seq 1 {{ cpus }}); do yes > /dev/null & done
+          sleep {{ duration }}
+          pkill yes || true
+        fi
